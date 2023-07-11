@@ -18,8 +18,35 @@ namespace ConsoleApp1
             //unsortedArray();
             //Console.WriteLine("\n\n");
             //Triangle();
-            reverseString();
-            Console.Read();
+            //reverseString();
+            //PerfectNumber();
+            //StringReversed();
+            int n = 100; // Change the value of n as per your requirement
+
+            Console.WriteLine("Prime numbers up to {0}:", n);
+
+            for (int i = 2; i <= n; i++)
+            {
+                bool isPrime = true;
+
+                for (int j = 2; j <= Math.Sqrt(i); j++)
+                {
+                    if (i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                if (isPrime)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+
+
+        
+        Console.Read();
         }
 
       
@@ -138,5 +165,47 @@ namespace ConsoleApp1
             Console.WriteLine("Reversed string: " + reversed);
 
         }
+        
+
+
+        static void PerfectNumber()
+        {
+
+            Console.WriteLine("Enter a number:");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int sumOfDivisors = 0;
+
+            for (int i = 1; i < number; i++)
+            {
+                if (number % i == 0)
+                {
+                    sumOfDivisors += i;
+                }
+            }
+            if(sumOfDivisors == number)
+            {
+                Console.WriteLine(number+" is a perfect number");
+            }
+            else
+            {
+                Console.WriteLine(number+" is not a perfect number");
+            }
+        }
+
+        static void StringReversed()
+        {
+            string letter = "asdfgh";
+
+            string reversed = "";
+            for(int i = letter.Length-1; i>=0; i--)
+            {
+                reversed +=  letter[i].ToString();
+
+            }
+            Console.WriteLine(reversed);
+        }
     }
+
+    
 }
